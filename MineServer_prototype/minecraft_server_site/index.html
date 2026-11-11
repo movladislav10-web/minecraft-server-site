@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MineServer — Minecraft Server</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">◆</span>
+      <span><b data-site-name>MineServer</b><small>Играй • Общайся • Развивайся</small></span>
+    </a>
+    <nav>
+      <a class="active" href="#home">Главная</a>
+      <a href="#rules">Правила</a>
+      <a href="#info">Информация</a>
+      <a href="#shop">Магазин</a>
+      <a href="#applications">Заявки</a>
+      <a href="#support">Тех. поддержка</a>
+    </nav>
+    <a class="btn btn-primary" href="#account">Войти</a>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="eyebrow">MINECRAFT SERVER</span>
+        <h1>Добро пожаловать<br>на наш <span>сервер!</span></h1>
+        <p>Уникальный мир, дружное комьюнити и множество возможностей ждут тебя.</p>
+        <div class="actions">
+          <button class="btn btn-primary" onclick="copyIP()">▶ Начать играть</button>
+          <button class="btn btn-ghost" onclick="copyIP()">▣ Скопировать IP</button>
+          <div class="online"><i></i><span>Онлайн<br><b>247 / 1000</b></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid dashboard-grid">
+      <article class="panel news">
+        <div class="panel-head"><h2>📣 Новости</h2><a href="#">Все новости →</a></div>
+        <div class="news-item">
+          <div class="thumb t1"></div><div><small>24.04.2025</small><h3>Новый сезон и обновление!</h3><p>Мы запустили новый сезон с крутыми обновлениями и ивентами!</p></div>
+        </div>
+        <div class="news-item">
+          <div class="thumb t2"></div><div><small>20.04.2025</small><h3>Ивент на выходных!</h3><p>В эти выходные вас ждёт уникальный ивент с ценными наградами!</p></div>
+        </div>
+      </article>
+
+      <article id="shop" class="panel shop">
+        <div class="panel-head"><h2>🛒 Магазин</h2><a href="#shop-all">Перейти в магазин →</a></div>
+        <div class="products" id="products"></div>
+      </article>
+
+      <aside id="account" class="panel account">
+        <div class="panel-head"><h2>👤 Личный кабинет</h2></div>
+        <div class="profile"><div class="avatar">P</div><div><h3>Player123</h3><span class="tag">Игрок</span></div></div>
+        <div class="balance">🪙 <b>500 ₽</b></div>
+        <button class="btn btn-primary full" onclick="alert('В следующей версии здесь будет пополнение баланса.')">Пополнить баланс</button>
+        <div class="account-links"><a href="#">Мои покупки ›</a><a href="#applications">Мои заявки ›</a><a href="#support">Мои обращения ›</a><a href="#">Настройки аккаунта ›</a></div>
+      </aside>
+    </section>
+
+    <section class="grid lower-grid">
+      <article id="info" class="panel">
+        <h2>▣ Информация о сервере</h2>
+        <div class="info-row"><div class="info-image"></div><div><p><b>Режимы:</b> Выживание, Анархия, Мини-Игры</p><p><b>Версия:</b> 1.20.4+</p><p><b>IP:</b> mc.mineserver.ru</p><button class="btn btn-ghost small" onclick="copyIP()">Скопировать IP</button></div></div>
+      </article>
+      <article id="applications" class="panel banner-card">
+        <h2>➤ Подача заявок</h2>
+        <p>Хочешь стать частью команды? Подай заявку на одну из ролей!</p>
+        <button class="btn btn-primary" onclick="openModal('applicationModal')">Подать заявку →</button>
+      </article>
+      <article id="support" class="panel banner-card support">
+        <h2>◉ Тех. поддержка</h2>
+        <p>Возникли проблемы? Напиши нам, и мы поможем!</p>
+        <button class="btn btn-primary" onclick="openModal('supportModal')">Открыть тикет →</button>
+      </article>
+    </section>
+
+    <section id="rules" class="panel page-section">
+      <h2>📜 Правила</h2>
+      <div class="rules">
+        <p><b>1. Уважайте игроков.</b> Запрещены оскорбления, угрозы и травля.</p>
+        <p><b>2. Не используйте читы.</b> Запрещены сторонние программы и нечестные преимущества.</p>
+        <p><b>3. Не мешайте игре.</b> Запрещены намеренный спам, лаг-машины и вредительство.</p>
+        <p><b>4. Соблюдайте решения администрации.</b> При спорной ситуации обратитесь в поддержку.</p>
+      </div>
+    </section>
+
+    <section id="shop-all" class="panel page-section">
+      <div class="panel-head"><h2>🛍 Магазин</h2><span>Товары добавляются через админ-панель</span></div>
+      <div class="products products-large" id="productsLarge"></div>
+      <div class="cart-box"><h3>Корзина</h3><div id="cart">Корзина пуста.</div></div>
+    </section>
+  </main>
+
+  <footer><span>© 2025 MineServer</span><span>Discord • Telegram • YouTube</span><a href="admin.html">Админ-панель</a></footer>
+
+  <div class="modal" id="applicationModal"><div class="modal-card"><button class="close" onclick="closeModal('applicationModal')">×</button><h2>Заявка на роль</h2><label>Роль<select><option>Хелпер</option><option>Модератор</option><option>Строитель</option></select></label><label>Minecraft ник<input placeholder="Player123"></label><label>Почему хотите стать частью команды?<textarea rows="4"></textarea></label><button class="btn btn-primary full" onclick="submitFake('Заявка отправлена!')">Отправить</button></div></div>
+  <div class="modal" id="supportModal"><div class="modal-card"><button class="close" onclick="closeModal('supportModal')">×</button><h2>Тех. поддержка</h2><label>Тема<input placeholder="Не пришёл донат"></label><label>Сообщение<textarea rows="5" placeholder="Опишите проблему"></textarea></label><button class="btn btn-primary full" onclick="submitFake('Тикет создан!')">Создать обращение</button></div></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
