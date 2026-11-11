@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MineServer — Админ-панель</title><link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">◆</span><span><b>MineServer</b><small>Админ-панель</small></span></a><a class="btn btn-ghost" href="index.html">← На сайт</a></header>
+  <main class="admin-layout">
+    <aside class="admin-nav panel">
+      <button class="admin-tab active" data-tab="dashboard">📊 Обзор</button>
+      <button class="admin-tab" data-tab="shop">🛒 Магазин</button>
+      <button class="admin-tab" data-tab="pages">📄 Страницы</button>
+      <button class="admin-tab" data-tab="applications">📨 Заявки</button>
+      <button class="admin-tab" data-tab="support">🛠 Поддержка</button>
+      <button class="admin-tab" data-tab="theme">🎨 Внешний вид</button>
+    </aside>
+    <section class="admin-content">
+      <div class="admin-section active" id="dashboard"><h1>Панель управления</h1><div class="stats"><div class="stat panel"><span>Пользователи</span><b>1 284</b></div><div class="stat panel"><span>Заказы</span><b>327</b></div><div class="stat panel"><span>Выручка</span><b>48 590 ₽</b></div><div class="stat panel"><span>Новые заявки</span><b>14</b></div></div></div>
+
+      <div class="admin-section" id="shop"><h1>Магазин</h1><div class="panel editor"><h3>Новый товар</h3><div class="form-grid"><label>Название<input id="productName" placeholder="VIP"></label><label>Цена<input id="productPrice" type="number" placeholder="199"></label><label>Категория<select><option>Привилегии</option><option>Кейсы</option><option>Валюта</option></select></label><label>Изображение<input type="file"></label></div><label>Описание<textarea placeholder="Описание товара"></textarea></label><button class="btn btn-primary" onclick="addAdminProduct()">Сохранить товар</button></div></div>
+
+      <div class="admin-section" id="pages"><h1>Страницы</h1><div class="panel editor"><label>Название страницы<input placeholder="Новости"></label><label>Адрес<input placeholder="/news"></label><label>Содержание<textarea rows="8" placeholder="Текст страницы..."></textarea></label><button class="btn btn-primary" onclick="alert('Страница добавлена в демо-режиме.')">+ Создать страницу</button></div></div>
+
+      <div class="admin-section" id="applications"><h1>Заявки</h1><div class="panel table"><div><b>Player123</b><span>Модератор</span><span class="status pending">На рассмотрении</span><button class="btn btn-small">Открыть</button></div><div><b>AlexPro</b><span>Хелпер</span><span class="status approved">Принята</span><button class="btn btn-small">Открыть</button></div></div></div>
+
+      <div class="admin-section" id="support"><h1>Тех. поддержка</h1><div class="panel table"><div><b>#1042 Не пришёл донат</b><span>Player123</span><span class="status pending">Открыт</span><button class="btn btn-small">Ответить</button></div></div></div>
+
+      <div class="admin-section" id="theme"><h1>Внешний вид</h1><div class="panel editor"><div class="form-grid"><label>Основной цвет<input id="primary" value="#6A54F4"></label><label>Вторичный цвет<input id="secondary" value="#545EB6"></label><label>Цвет кнопок<input id="button" value="#786FAE"></label><label>Цвет текста<input id="text" value="#FFFFFF"></label><label>Фон сайта<input id="bg" value="#080B18"></label><label>Фон карточек<input id="card" value="#11162A"></label></div><p>Для фона и карточек позже можно добавить загрузку изображений и прозрачность.</p><button class="btn btn-primary" onclick="saveTheme()">Сохранить тему</button></div></div>
+    </section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>
